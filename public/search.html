@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DonorSearch - Search</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-brand">DonorSearch</a>
+            <div class="navbar-controls">
+                <div class="navbar-links">
+                    <a href="/">Home</a>
+                    <a href="/register">Register as Donor</a>
+                    <a href="/search">Search for Donor</a>
+                </div>
+                <button class="theme-toggle" id="themeToggle" title="Toggle Dark/Light Theme">
+                    <span id="themeIcon">🌙</span>
+                    <span id="themeText">Dark</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="main-content">
+        <div class="container">
+        <h1>Search for Blood Donors</h1>
+        <form id="searchForm" action="/search" method="POST">
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country" required>
+            
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state" required>
+            
+            <label for="district">District:</label>
+            <input type="text" id="district" name="district" required>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="bloodGroup">Blood Group:</label>
+            <select id="bloodGroup" name="bloodGroup" required>
+                <option value="">Select Blood Group</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+            </select>
+            
+            <input type="submit" value="Search">
+        </form>
+        <div id="results"></div>
+        </div>
+    </div>
+    <script src="/js/theme.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>
