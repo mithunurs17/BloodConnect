@@ -51,8 +51,13 @@ app.post('/register', (req, res) => {
 // Search donors endpoint
 app.post('/search', (req, res) => {
     const { country, state, city, district, bloodGroup } = req.body;
+    // Use case-insensitive comparison by normalizing both sides with lower()
     const query = `SELECT * FROM donors 
-                  WHERE country = ? AND state = ? AND city = ? AND district = ? AND bloodGroup = ?`;
+                  WHERE lower(country) = lower(?) 
+                    AND lower(state) = lower(?) 
+                    AND lower(city) = lower(?) 
+                    AND lower(district) = lower(?) 
+                    AND lower(bloodGroup) = lower(?)`;
     db.all(query, [country, state, city, district, bloodGroup], (err, rows) => {
         if (err) {
             console.error(err.message);
